@@ -1,3 +1,5 @@
+
+
 //require the express package
 const express = require("express");
 
@@ -15,6 +17,14 @@ const app2 = express();
 // set the port to 3000
 const port = 3000;
 const port2 = 3001;
+
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
+app.use(
+'/api-docs',
+swaggerUi.serve,
+swaggerUi.setup(swaggerDocument)
+);
 
 app.use('/mytest', testRoutes);
 
